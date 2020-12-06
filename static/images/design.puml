@@ -1,0 +1,25 @@
+@startuml
+
+skinparam monochrome true
+skinparam ranksep 20
+skinparam dpi 150
+skinparam arrowThickness 0.7
+skinparam packageTitleAlignment left
+skinparam usecaseBorderThickness 0.4
+skinparam defaultFontSize 12
+skinparam rectangleBorderThickness 1
+left to right direction 
+
+actor User
+cloud Azure{
+database storage as "Storage\naccount"
+rectangle CDN
+rectangle vault as "Key Vault"
+}
+rectangle "CloudFlareDNS"
+
+User --> CloudFlareDNS
+CloudFlareDNS --> CDN
+CDN --> storage
+CDN --> vault: reads SSL\ncertificate
+@enduml
