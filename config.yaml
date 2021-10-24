@@ -20,7 +20,7 @@ params:
       url: tags
   homeInfoParams:
     Title: Oleg Elantsev
-    Content: Currently DevOps engineer, writing about developer life, technology, etc.
+    Content: Software engineer posting random thoughts.
 
   socialIcons:
   - name: twitter
@@ -31,7 +31,7 @@ params:
     url: "https://www.linkedin.com/in/oleg-elantsev"
 
 deployment:
-  order: [".jpg$", ".gif$"]
+  order: [".jpg$", ".gif$", ".png$"]
   targets:
   - name: "azure-deployment"
     URL: "azblob://$web"

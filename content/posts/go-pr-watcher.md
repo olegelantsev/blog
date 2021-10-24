@@ -9,7 +9,7 @@ cover:
 
 <!-- ![Design overview](/images/go-pr-watcher.png) -->
 
-I try to cultivate a habbit to regularly keep an eye on whats going on in the project, either on user story or code changes levels.
+I try to cultivate a habit to regularly keep an eye on whats going on in the project, either on user story or code changes levels.
 User stories are relatively easy to track (still might be improved) with existing tooling, while code changes is a bit more challenging.
 
 The typical flow I had for months is checking a dedicated folder in the e-mail inbox, where notification messages were sent for the new comments, raised PRs and PR status changes. The downside of such approach is that messages are separated from regular "inbox", and I may forget to check the other folder as well. Soon I removed such rule, and kept checking the only inbox folder and try to keep it empty at all times - this worked better. This however requires an immediate reaction, such as checking the new PR, or responding to the new comments, or something unrelated to PRs, which may be even more costly in terms of context switching.
