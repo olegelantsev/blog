@@ -17,7 +17,7 @@ jobs:
       - name: Install hugo
         run: sudo apt-get install hugo
       - name: build site
-        run: hugo
+        run: hugo --log -v
       - name: deploy site
         run: hugo deploy
         env:
