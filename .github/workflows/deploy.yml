@@ -17,7 +17,8 @@ jobs:
         run: git submodule init && git submodule update
       - name: Download hugo
         run: |
-          wget https://github.com/gohugoio/hugo/releases/download/v0.118.2/hugo_0.118.2_linux-amd64.deb -O hugo.tar.gz
+          wget https://github.com/gohugoio/hugo/releases/download/v0.118.2/hugo_0.118.2_linux-amd64.tar.gz
+ -O hugo.tar.gz
           tar -zxvf hugo.tar.gz
           mv hugo /usr/local/bin/
           hugo version
