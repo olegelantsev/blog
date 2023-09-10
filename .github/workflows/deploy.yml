@@ -1,11 +1,11 @@
 
 name: CI
 
-on: [push]
-  # push:
-    # branches: [ main ]
+on:
+  push:
+    branches: [ main ]
 
-  # workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -24,8 +24,8 @@ jobs:
 
       - name: build site
         run: hugo -v
-      # - name: deploy site
-      #   run: hugo deploy
-      #   env:
-      #     AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
-      #     AZURE_STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
+      - name: deploy site
+        run: hugo deploy
+        env:
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+          AZURE_STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
