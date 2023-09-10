@@ -3,7 +3,7 @@ title:  "Watch GitHub PRs"
 date: 2021-10-24T20:07:00+01:00
 draft: false
 cover:
-    image: "images/go-pr-watcher.png"
+    image: "go-pr-watcher.png"
     caption: "go-pr-watcher tool listing open pull requests"
 ---
 

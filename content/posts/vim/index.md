@@ -3,7 +3,7 @@ title:  "I use VIM"
 date: 2023-09-10T13:06:00+04:00
 draft: false
 cover:
-    image: "images/vim.png"
+    image: "vim.png"
     caption: "VIM editor"
 ---
 
