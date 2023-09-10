@@ -22,6 +22,7 @@ jobs:
           tar -zxvf hugo.tar.gz
           mv hugo /usr/local/bin/
           hugo version
+
       - name: build site
         run: hugo --log -v
       # - name: deploy site
