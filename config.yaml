@@ -3,6 +3,7 @@ languageCode: "en-us"
 title: "Oleg Elantsev. dev blog."
 theme: "hugo-PaperMod"
 enableRobotsTXT: true
+googleAnalytics: G-6ZFLBCY7L1
 
 params:
   comments: true
