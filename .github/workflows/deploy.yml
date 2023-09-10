@@ -1,9 +1,9 @@
 
 name: CI
 
-on:
-  push:
-    branches: [ main ]
+on: [push]
+  # push:
+    # branches: [ main ]
 
   workflow_dispatch:
 
@@ -15,12 +15,16 @@ jobs:
       - uses: actions/checkout@v2
       - name: Initialize theme
         run: git submodule init && git submodule update
-      - name: Install hugo
-        run: sudo apt-get install hugo
+      - name: Download hugo
+        run: |
+          wget https://github.com/gohugoio/hugo/releases/download/v0.118.2/hugo_0.118.2_linux-amd64.deb -O hugo.tar.gz
+          tar -zxvf hugo.tar.gz
+          mv hugo /usr/local/bin/
+          hugo version
       - name: build site
         run: hugo --log -v
-      - name: deploy site
-        run: hugo deploy
-        env:
-          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
-          AZURE_STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
+      # - name: deploy site
+      #   run: hugo deploy
+      #   env:
+      #     AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+      #     AZURE_STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
