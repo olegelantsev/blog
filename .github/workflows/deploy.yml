@@ -13,7 +13,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
+      - name: Initialize theme
+        run: git submodule init && git submodule update
       - name: Install hugo
         run: sudo apt-get install hugo
       - name: build site
