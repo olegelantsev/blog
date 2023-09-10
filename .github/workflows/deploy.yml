@@ -15,10 +15,15 @@ jobs:
       - uses: actions/checkout@v2
       - name: Initialize theme
         run: git submodule init && git submodule update
-      - name: Install hugo
-        run: sudo apt-get install hugo
+      - name: Download hugo
+        run: |
+          wget https://github.com/gohugoio/hugo/releases/download/v0.118.2/hugo_0.118.2_linux-amd64.tar.gz -O hugo.tar.gz
+          tar -zxvf hugo.tar.gz
+          mv hugo /usr/local/bin/
+          hugo version
+
       - name: build site
-        run: hugo --log -v
+        run: hugo -v
       - name: deploy site
         run: hugo deploy
         env:
