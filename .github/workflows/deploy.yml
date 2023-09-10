@@ -23,7 +23,7 @@ jobs:
           hugo version
 
       - name: build site
-        run: hugo --log -v
+        run: hugo -v
       # - name: deploy site
       #   run: hugo deploy
       #   env:
