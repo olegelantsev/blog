@@ -4,7 +4,7 @@ date: 2023-09-22T09:00:00+04:00
 draft: false
 cover:
     image: "transactions.png"
-    caption: "VIM editor"
+    caption: "READ COMMITTED transaction isolation level"
 ---
 
 <!-- ![Design overview](/images/transactions.png) -->
@@ -30,13 +30,13 @@ The diagram above illustrates non-repeatable read problem and read-committed gua
 
 PostgreSQL uses MVCC to allow concurrent read and write operations without locking the entire table. MVCC creates a snapshot of the database at the start of each transaction. Each transaction sees a snapshot of the database as of the transaction's start time. This snapshot-based approach allows for a high degree of concurrency. To achieve that PostgreSQL implements MVCC:
 
-Versioning data - due to concurrent transactions there might be multiple versions of rows at a time visible to different transactions. Each row modification is associated with transaction, that either created, modified or deleted row. Each row also contains a visibility marker, indicating when row is visible and when it becomes invisible (after deletion or update).
+* Versioning data - due to concurrent transactions there might be multiple versions of rows at a time visible to different transactions. Each row modification is associated with transaction, that either created, modified or deleted row. Each row also contains a visibility marker, indicating when row is visible and when it becomes invisible (after deletion or update).
 
-Mark transaction with IDs - XIDs. Its 32bit transaction identifier used to track visibility and age of transactions.
+* Mark transaction with IDs - XIDs. Its 32bit transaction identifier used to track visibility and age of transactions.
 
-Read transactions - when a transaction starts, it gets assigned a unique XID. During a read operation, a transaction sees only those rows with XID ranges that are considered "visible" according to its own XID. This way read transactions don't see changes made by concurrent write transactions that have not been yet committed.
+* Read transactions - when a transaction starts, it gets assigned a unique XID. During a read operation, a transaction sees only those rows with XID ranges that are considered "visible" according to its own XID. This way read transactions don't see changes made by concurrent write transactions that have not been yet committed.
 
-Write transactions. When such transaction perform update or delete operation, it creates a new version of affected rows with new assigned XID. The "old" version of rows aren't removed yet. Those are marked as dead, and will become eligible for vacuuming.
+* Write transactions. When such transaction perform update or delete operation, it creates a new version of affected rows with new assigned XID. The "old" version of rows aren't removed yet. Those are marked as dead, and will become eligible for vacuuming.
 
 This way PostgreSQL implements transaction isolation. Each transaction sees a snapshot of a database at a time transaction started, and changes made by other transactions after that point are not visible.
 
