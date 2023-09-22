@@ -44,7 +44,7 @@ This way PostgreSQL implements transaction isolation. Each transaction sees a sn
 
 ![Design overview](mvcc-tuples.jpg)
 
-## Row update
+### Row update
 When a transaction updates a tuple, it creates a new version of the tuple (AKA copy-on-write approach) with its own XID, and the old version's Xmax (Transaction ID of the last transaction to modify the tuple) is set to the XID of the updating transaction. Old tuple lifecycle is ended and future transactions should not see it (at least after commit).
 
 Transaction 3 on the illustration updates a row. New tuple's header has XMin value equal to transaction XID - 3. Old tuple has XMax assigned to 3 as well, that may actually have a few interpretations depending on the other flags set in tuple header (e.g. xmax is also assigned when tuple is locked for update), but for simplicity I will omit those details.
