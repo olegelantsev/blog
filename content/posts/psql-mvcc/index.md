@@ -40,14 +40,13 @@ PostgreSQL uses MVCC to allow concurrent read and write operations without locki
 
 This way PostgreSQL implements transaction isolation. Each transaction sees a snapshot of a database at a time transaction started, and changes made by other transactions after that point are not visible.
 
-## What happens when row gets updated while being repeatably read by another transaction?
+## READ COMMITTED example
+
+What happens when row gets updated while being repeatably read by another transaction?
 
 ![Design overview](mvcc-tuples.jpg)
 
-### Row update
-When a transaction updates a tuple, it creates a new version of the tuple (AKA copy-on-write approach) with its own XID, and the old version's Xmax (Transaction ID of the last transaction to modify the tuple) is set to the XID of the updating transaction. Old tuple lifecycle is ended and future transactions should not see it (at least after commit).
-
-Transaction 3 on the illustration updates a row. New tuple's header has XMin value equal to transaction XID - 3. Old tuple has XMax assigned to 3 as well, that may actually have a few interpretations depending on the other flags set in tuple header (e.g. xmax is also assigned when tuple is locked for update), but for simplicity I will omit those details.
+When a transaction updates a tuple, it creates a new version of the tuple (AKA copy-on-write approach) with its own XID, and the old tuple's Xmax (Transaction ID of the last transaction to modify the tuple) is set to the XID of the updating transaction. Old tuple lifecycle is ended and future transactions should not see it (at least after successful commit). New tuple needs to be visible only for later transactions. It's header XMin is now assigned a value equal to transaction XID - 3. Old tuple XMax value is now assigned to 3 as well. Xmax value limits the visibility of the tuple depending on transaction isolation level. Non-zero value of XMax may actually have a few interpretations depending on the other flags set in tuple header (e.g. xmax is also assigned when tuple is locked for update).
 
 This diagram explains very high level the MVCC implementation. There are more interesting things happen to the states of tuples, transactions and snapshots. For example, tuple state and its visibility is well described in [heapam_visibility.c](https://github.com/postgres/postgres/blob/master/src/backend/access/heap/heapam_visibility.c)
 
