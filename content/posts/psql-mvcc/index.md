@@ -65,3 +65,9 @@ Those functions rely on tuple header fields (Xmin, Xmax and a few flag values), 
 
 ## Garbage Collection
 The Xmin and Xmax values are also used during the garbage collection process to determine which tuples are no longer visible to any active transaction. Tuples with an Xmax that is less than the current transaction's XID and when no other current transactions access the old tuple (e.g. deleted or replaced) - they can be safely removed during vacuuming.
+
+## The end
+
+It was surprisingly fun to read PostgreSQL source code. Git blame reported that some lines were more than 20 years old. Methods frequently are well documented with comments and not only describe what a particular function does, but also conditions under which this function must be invoked, what kind of locks it uses, what optimisations were tried before, etc. For those who want to dig deeper and explore the tuple states I recommend to start with [htup_details.h](https://github.com/postgres/postgres/blob/cca97ce6a6653df7f4ec71ecd54944cc9a6c4c16/src/include/access/htup_details.h).
+
+You can follow me on Twitter [@olegelantsev](https://twitter.com/OlegElantsev) or [GitHub](https://github.com/olegelantsev)
