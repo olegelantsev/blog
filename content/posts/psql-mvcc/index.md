@@ -68,6 +68,6 @@ The Xmin and Xmax values are also used during the garbage collection process to 
 
 ## The end
 
-It was surprisingly fun to read PostgreSQL source code. Git blame reported that some lines were more than 20 years old. Methods frequently are well documented with comments and not only describe what a particular function does, but also conditions under which this function must be invoked, what kind of locks it uses, what optimisations were tried before, etc. For those who want to dig deeper and explore the tuple states I recommend to start with [htup_details.h](https://github.com/postgres/postgres/blob/cca97ce6a6653df7f4ec71ecd54944cc9a6c4c16/src/include/access/htup_details.h).
+It was surprisingly fun to read PostgreSQL source code. Git blame reported that some lines were more than 20 years old. Methods frequently are well documented with comments and not only describe what a particular function does, but also conditions under which this function must be invoked, what kind of locks it uses, what optimisations were tried before, etc. For those who wants to dig deeper and explore the tuple states I recommend to start with [htup_details.h](https://github.com/postgres/postgres/blob/cca97ce6a6653df7f4ec71ecd54944cc9a6c4c16/src/include/access/htup_details.h).
 
 You can follow me on Twitter [@olegelantsev](https://twitter.com/OlegElantsev) or [GitHub](https://github.com/olegelantsev)
