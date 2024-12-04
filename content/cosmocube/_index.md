@@ -7,7 +7,6 @@ images: ["cosmocube/IMG_0403.PNG", "cosmocube/IMG_0404.PNG", "cosmocube/IMG_0409
 
 {{< image-gallery gallery_dir="/images/cosmocube" >}}
 
-<!-- {{< gallery >}} -->
 {{< include-html "content/cosmocube/link.html" >}}
 
 Step into the thrilling world of CosmosCube, where excitement and strategy combine in an intergalactic journey unlike any other! Navigate your way through the mesmerizing realms of space, traversing the sides of intricate cubes with our lovable protagonist – a green alien with two big, curious eyes.
