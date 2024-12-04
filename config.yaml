@@ -21,7 +21,7 @@ params:
       url: tags
   homeInfoParams:
     Title: Oleg Elantsev
-    Content: Software engineer posting random thoughts.
+    Content: Writing about software development, cloud computing, and other tech topics.
 
   socialIcons:
   - name: twitter
