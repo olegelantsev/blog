@@ -1,5 +1,5 @@
 ---
-title:  "Prometheus queries I use"
+title:  "Prometheus queries"
 date: 2024-08-07T17:51:06+01:00
 draft: false
 ---

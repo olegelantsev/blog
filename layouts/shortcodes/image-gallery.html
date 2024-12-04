@@ -1,0 +1,71 @@
+<style>
+  .image-gallery {overflow: auto; margin-left: -1%!important;}
+  .image-gallery li {float: left; display: block; margin: 0 0 1% 1%; width: 19%;}
+  .image-gallery li a {text-align: center; text-decoration: none!important; color: #777;}
+  .image-gallery li a span {display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; padding: 3px 0;}
+  .image-gallery li a img {width: 100%; display: block;}
+
+
+  .image-gallery-wrapper {
+  display: flex;
+  justify-content: center; /* Centers the gallery horizontally */
+  align-items: center;    /* Centers the gallery vertically (if needed) */
+  padding: 20px;          /* Optional: Adds some spacing */
+  width: 100%;
+}
+
+.image-gallery {
+  display: flex;           /* Ensures horizontal alignment of items */
+  flex-wrap: wrap;         /* Allows items to wrap to the next line if needed */
+  list-style: none;        /* Removes default list styling */
+  padding: 0;              /* Removes default padding */
+  margin: 0;               /* Removes default margin */
+  gap: 10px;               /* Adds spacing between items */
+  justify-content: center; /* Align items within the container */
+}
+
+.image-gallery li {
+  display: block;
+  width: 200px;           /* Set a fixed width for each item */
+}
+
+.image-gallery li img {
+  width: 100%;            /* Ensure images are responsive */
+  border-radius: 8px;     /* Optional: Adds rounded corners to images */
+}
+
+.image-gallery li span {
+  text-align: center;
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #555;            /* Optional: Adjust text color */
+}
+</style>
+
+{{ $dir := string (.Get "gallery_dir") }}
+
+<ul class="image-gallery ">
+  {{ range (readDir (print "/static" $dir)) }}
+    {{- $ext := lower (delimit (last 1 (split .Name ".")) "") -}}
+    {{- if or (eq $ext "jpg") (eq $ext "png") (eq $ext "jpeg") -}}
+      {{- $image := resources.Get (printf "%s/%s" $dir .Name) -}}
+      {{- if $image -}}
+        {{- $imagetitle := index (split .Name ".") 0 -}}
+        <li>
+          <a href="{{ ($image.Fit "1600x1600 q50").Permalink }}" title="{{ $imagetitle }}" class="lightbox-image">
+            <img src="{{ ($image.Fill "300x300 q50").Permalink }}" alt="{{ $imagetitle }}" title="{{ $imagetitle }}">
+            <span>{{ $imagetitle }}</span>
+          </a>
+        </li>
+      {{- else -}}
+        <li>
+          <a href="{{ printf "%s/%s" $dir .Name }}" title="{{ index (split .Name ".") 0 }}" class="lightbox-image">
+            <img src="{{ printf "%s/%s" $dir .Name }}" alt="{{ index (split .Name ".") 0 }}" title="{{ index (split .Name ".") 0 }}">
+            <!-- <span>{{ index (split .Name ".") 0 }}</span> -->
+          </a>
+        </li>
+      {{- end -}}
+    {{- end -}}
+  {{ end }}
+</ul>
