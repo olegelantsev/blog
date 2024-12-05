@@ -2,17 +2,20 @@
 title: "Linux TTY on LCD 16x2 screen"
 date: 2024-12-05T12:00:00
 draft: false
+
+cover:
+    image: "image.jpg"
+    caption: "Photo of Arduino LCD as TTY for Linux"
+
 ---
-
-{{< youtube kIuDFnvjQvw >}}
-
-#
 
 Yet another just for fun project. I decided to make use of a small LCD screen from Arduino kit & Raspberry Pi.
 
 Inspired by historical teletype access to the computers & also challenges to use low-end tech as working setup (e.g. full day work on Raspberry Pi or Chrome books). Even today terminal is used, mostly by software developers, to run system commands for managing files, writing code, debugging, building apps, managing configs, etc. It’s sometimes surprising how much can be done by using only terminal and no fancy GUI at all.
 
 What I want - is to use see TTY in LCD screen as if it is the only screen available.
+
+{{< youtube kIuDFnvjQvw >}}
 
 ### Breadboard
 
