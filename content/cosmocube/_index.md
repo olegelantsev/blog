@@ -2,7 +2,7 @@
 title:  "CosmoCube"
 date: 2024-04-15T17:51:06+01:00
 draft: false
-images: ["cosmocube/IMG_0403.PNG", "cosmocube/IMG_0404.PNG", "cosmocube/IMG_0409.PNG"]
+images: ["cosmocube/IMG_0403.webp", "cosmocube/IMG_0404.webp", "cosmocube/IMG_0409.webp"]
 ---
 
 {{< image-gallery gallery_dir="/images/cosmocube" >}}
