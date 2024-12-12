@@ -48,7 +48,7 @@
 <ul class="image-gallery ">
   {{ range (readDir (print "/static" $dir)) }}
     {{- $ext := lower (delimit (last 1 (split .Name ".")) "") -}}
-    {{- if or (eq $ext "jpg") (eq $ext "png") (eq $ext "jpeg") -}}
+    {{- if or (eq $ext "jpg") (eq $ext "png") (eq $ext "jpeg") (eq $ext "webp") -}}
       {{- $image := resources.Get (printf "%s/%s" $dir .Name) -}}
       {{- if $image -}}
         {{- $imagetitle := index (split .Name ".") 0 -}}
