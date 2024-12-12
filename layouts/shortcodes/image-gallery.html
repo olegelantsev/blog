@@ -6,12 +6,12 @@
   .image-gallery li a img {width: 100%; display: block;}
 
 
-  .image-gallery-wrapper {
-  display: flex;
-  justify-content: center; /* Centers the gallery horizontally */
-  align-items: center;    /* Centers the gallery vertically (if needed) */
-  padding: 20px;          /* Optional: Adds some spacing */
-  width: 100%;
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+  gap: 1rem; /* Adds space between images */
+  padding: 0;
+  list-style: none;
 }
 
 .image-gallery {
@@ -41,6 +41,7 @@
   font-size: 14px;
   color: #555;            /* Optional: Adjust text color */
 }
+
 </style>
 
 {{ $dir := string (.Get "gallery_dir") }}
