@@ -8,20 +8,15 @@
 
 .image-gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
-  gap: 1rem; /* Adds space between images */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
   padding: 0;
   list-style: none;
+  overflow-x: auto; /* Allows horizontal scrolling if needed */
 }
 
-.image-gallery {
-  display: flex;           /* Ensures horizontal alignment of items */
-  flex-wrap: wrap;         /* Allows items to wrap to the next line if needed */
-  list-style: none;        /* Removes default list styling */
-  padding: 0;              /* Removes default padding */
-  margin: 0;               /* Removes default margin */
-  gap: 10px;               /* Adds spacing between items */
-  justify-content: center; /* Align items within the container */
+.image-gallery li {
+  min-width: 150px; /* Sets a minimum width for each image */
 }
 
 .image-gallery li {
