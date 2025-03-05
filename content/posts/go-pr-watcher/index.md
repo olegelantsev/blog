@@ -3,11 +3,11 @@ title:  "Watch GitHub PRs"
 date: 2021-10-24T20:07:00+01:00
 draft: false
 cover:
-    image: "go-pr-watcher.png"
+    image: "go-pr-watcher.webp"
     caption: "go-pr-watcher tool listing open pull requests"
 ---
 
-<!-- ![Design overview](/images/go-pr-watcher.png) -->
+<!-- ![Design overview](/images/go-pr-watcher.webp) -->
 
 I try to cultivate a habit to regularly keep an eye on whats going on in the project, either on user story or code changes levels.
 User stories are relatively easy to track (still might be improved) with existing tooling, while code changes is a bit more challenging.

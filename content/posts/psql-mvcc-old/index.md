@@ -7,7 +7,7 @@ cover:
     caption: "READ COMMITTED transaction isolation level"
 ---
 
-<!-- ![Design overview](/images/transactions.png) -->
+<!-- ![Design overview](/images/transactions.webp) -->
 
 Recently I was reading “Designing Data-Intensive Applications” book, and it ignited my interest to explore the source code of PostgreSQL, the database I mostly use, prompting me to delve deeper into the technical details behind its implementation and check out how aligned it is with what I learned from the book. According to statista it takes 4th place in most popular databases 2023. Typically first go Microsoft SQL, MySQL, Oracle and PostgreSQL.
 
@@ -54,13 +54,13 @@ This diagram explains very high level the MVCC implementation. There are more in
 
 At a start up of each transaction, one requests a snapshot object, containing information about all running transactions. Let's have a look at [procarray.c](https://github.com/postgres/postgres/blob/cca97ce6a6653df7f4ec71ecd54944cc9a6c4c16/src/backend/storage/ipc/procarray.c#L2126) file and very descriptive comment of GetSnapshotData function:
 
-![GetSnapshotData](getsnapshotdata.png)
+![GetSnapshotData](getsnapshotdata.webp)
 
 Having a snapshot object describing currently running transactions and XIDs "boundaries" is quite helpful for complying with READ COMMITTED isolation level. From the example above, no other transaction of such isolation level will see "name = Bob" until transaction 3 is successfully committed.
 
 [heapam_visibility.c](https://github.com/postgres/postgres/blob/master/src/backend/access/heap/heapam_visibility.c) seems to be the right place to look for understanding how a snapshot type impacts the tuple visibility for transaction.
 
-![Tuple Visibility](tuple-visibility.png)
+![Tuple Visibility](tuple-visibility.webp)
 Those functions rely on tuple header fields (Xmin, Xmax and a few flag values), snapshot object to determine the visibility of the tuple to other transactions.
 
 ## Garbage Collection

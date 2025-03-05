@@ -3,11 +3,11 @@ title:  "I use VIM"
 date: 2023-09-10T13:06:00+04:00
 draft: false
 cover:
-    image: "vim.png"
+    image: "vim.webp"
     caption: "VIM editor"
 ---
 
-<!-- ![Design overview](/images/vim.png) -->
+<!-- ![Design overview](/images/vim.webp) -->
 
 
 9 years ago I became a VIM user (after coding 3 years in XCode), that significantly uplifted my coding skills, C++ knowledge and environment around it.

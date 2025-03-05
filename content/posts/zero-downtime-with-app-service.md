@@ -7,7 +7,7 @@ cover:
     caption: "Zero donwtime app deployment with Azure App Service"
 ---
 
-<!-- ![Design overview](/images/zero_downtime_with_azure_app_service.png) -->
+<!-- ![Design overview](/images/zero_downtime_with_azure_app_service.webp) -->
 
 One of the problems in DevOps is deployment of an app seamless for the user, i.e. with zero cold starts and zero downtime.
 This is how you can achieve zero-downtime deployment of a three tier application with frontend, API and a database, hosted in Azure cloud.

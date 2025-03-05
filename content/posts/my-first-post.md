@@ -54,7 +54,7 @@ OK, now lets define the resources we need on Azure side for the blog.
 
 You can choose any names for the resources, not necessarily the same for all of them. What is important, names for these resources must be globally unique.
 
-![Design overview](/images/design.png)
+![Design overview](/images/design.webp)
 
 ## Setup steps
 
@@ -62,11 +62,11 @@ For now these steps are described for manual setup, later on it can be automated
 
 1. Create an Azure account.
 1. Create resource group (I would choose the region where most of the traffic comes from).
-![Creating resource group in Azure](/images/azure_create_rg.png)
+![Creating resource group in Azure](/images/azure_create_rg.webp)
 1. Create Blob Storage account.
-![Creating Storage Account in Azure](/images/azure_create_storage_account.png)
+![Creating Storage Account in Azure](/images/azure_create_storage_account.webp)
 1. Enable static website functionality. This will create container called "$web", put the names of index and 404 files.
-![Creating Storage Account in Azure](/images/azure_storage_enable_web.png)
+![Creating Storage Account in Azure](/images/azure_storage_enable_web.webp)
 1. Upload site files to the "$web" container.
 1. Create CDN pointing to the site URL.
 1. Go to CloudFlare and create CNAME record for "www" subdomain pointing to Azure CDN (choose DNS-only, otherwise CNAME verification will fail).
@@ -82,11 +82,11 @@ For now these steps are described for manual setup, later on it can be automated
     1. Choose "own certificate", your Key Vault, certificate name and its version and press "Save". Don't panic if it cannot get an access to the vault - check if you created an access policy and 2 hours passed after Azure CDN is registered in AAD.
 1. Create Page Rules in CloudFlare
     1. Create dummy A record for root domain and make sure its in proxy status, not direct.
-    ![Dummy A record for domain root](/images/cf_root_a_record.png)
+    ![Dummy A record for domain root](/images/cf_root_a_record.webp)
     1. Create CNAME record for "www" pointing to Azure's DNS endpoint.
-    ![CNAME record for www](/images/cf_cname.png)
+    ![CNAME record for www](/images/cf_cname.webp)
     1. In "page rules" create 2 rules:
         1. HTTPS only
         1. Forward "[example.com](http://example.com)/*" to "https://www.example.com"
-        ![Dummy A record for domain root](/images/cf_page_rules.png)
+        ![Dummy A record for domain root](/images/cf_page_rules.webp)
 1. Done

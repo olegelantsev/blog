@@ -34,7 +34,7 @@ params:
     url: "https://medium.com/@elantsev"
 
 deployment:
-  order: [".jpg$", ".gif$", ".png$"]
+  order: [".jpg$", ".gif$", ".png$", ".webp$"]
   targets:
   - name: "azure-deployment"
     URL: "azblob://$web"
