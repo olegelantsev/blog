@@ -6,8 +6,13 @@ draft: false
 
 <!-- # Context -->
 
-I started developing a game to apply to Zeptolab. Why? That was an application requirement back then. Zeptolab is the company famous for its Cut The Rope game, first published in 2010, it has been downloaded more than 600M times. Addictive gameplay attracted not only players, but developers - apparently many candidates applied. Company announced that applicants should build a game on a given topic, e.g. Arkanoid, write it in C++, no frameworks, it should work on Android or iOS. 
-Such challenge attracted me too, I started to work on what was most recently announced - pacman-like game. I recently got acquainted with OpenGL ES 2.0 by studying Gameplay3D, an open-source game engine, and I signed up for it.
+## The hook
+
+I wrote a game in C++. Why? That was an application requirement back then. Zeptolab is the company produced famous Cut The Rope, first published in 2010, it has been downloaded more than 600M times. Addictive gameplay attracted not only players, but developers - many candidates applied for a job. Company announced that applicants should build a game on a given topic, e.g. Arkanoid, write it in C++, no frameworks, it should work on Android or iOS. Back then it was a tech choice in Zeptolab not to use well-known frameworks and built engine in-house.
+
+Why should I apply as well? I started to work on what was most recently announced - pacman-like game. I just graduated from university and worked in iOS and Android app development. At that time I came across GamePlay3D - an open-source game engine and built a few simple things with it.
+
+## Where do I start?
 
 At the beginning, I focused on making a 2D game, where a hero would need to collect all the items and avoid toucing the enemy (ghosts) in a 2D labyrinth.
 
