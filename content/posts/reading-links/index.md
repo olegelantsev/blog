@@ -1,10 +1,10 @@
 ---
 title:  "Articles I like on Software Engineering"
-date: 2025-11-08T07:00:00+04:00
+date: 2025-11-09T07:00:00+04:00
 draft: false
 
 cover:
-    image: "cover.png"
+    image: "cover.webp"
     caption: "Reading lists"
 
 ---
