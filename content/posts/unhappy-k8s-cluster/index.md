@@ -11,6 +11,6 @@ cover:
 
 This is 15 minute fun, quite late for Halloween though. Kubernetes cluster suffering from different failures. If this was a production cluster and I was oncall (btw I am oncall while writing this :-D ), it would be a heart attack to see.
 
-Go and make it even more miserable! https://www.elantsev.com/k8s
+Go and make it even more miserable! Delete the workloads, check whats there https://www.elantsev.com/k8s
 
-Delete the workloads, check whats there
+The source code https://github.com/olegelantsev/unhappy-k8s-cluster
