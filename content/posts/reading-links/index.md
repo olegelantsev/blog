@@ -9,6 +9,9 @@ cover:
 
 ---
 
-This post will contain an interesting reading on software engineering and will be kept updated:
+This post will contain an interesting reading on software engineering.
+It will be kept updated.
 
-- Finding a needle in Haystack: Facebook’s photo storage -  https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf
+- Finding a needle in Haystack: Facebook’s photo storage - https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Beaver.pdf
+
+- Bigtable: A Distributed Storage System for Structured Data - https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf
